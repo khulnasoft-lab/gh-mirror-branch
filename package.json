@@ -1,0 +1,36 @@
+{
+  "name": "gh-mirror-branch",
+  "version": "0.1.0",
+  "description": "A Github Action to mirror one branch to another within the same repository",
+  "main": "index.ts",
+  "scripts": {
+    "build": "ncc build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khulnasoft-lab/gh-mirror-branch.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/khulnasoft-lab/gh-mirror-branch/issues"
+  },
+  "homepage": "https://github.com/khulnasoft-lab/gh-mirror-branch#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^3.0.0"
+  },
+  "devDependencies": {
+    "@octokit/types": "^5.0.1",
+    "@vercel/ncc": "^0.36.1",
+    "eslint": "^7.3.1",
+    "husky": "^4.2.5",
+    "typescript": "^5.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && git diff --quiet dist/index.js"
+    }
+  }
+}
