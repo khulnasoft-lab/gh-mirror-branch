@@ -1,4 +1,4 @@
-name: 'Mirror Branch'
+name: 'Mirror Branch action"
 description: 'Mirror a source branch to a destination branch within the same repository'
 inputs:
   github-token:
