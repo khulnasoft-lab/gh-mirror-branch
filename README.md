@@ -1,29 +1,37 @@
-# How to Contribute
+# gh-mirror-branch action
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+A Github Action to mirror one branch to another within the same repository
 
-## Contributor License Agreement
+For example, if you've renamed your `master` branch to `main`, but a lot of
+links out on the web hard-code the old name, you could mirror the `main` branch
+back to `master` so those links keep working.
 
-Contributions to this project must be accompanied by a Contributor License
-Agreement (CLA). You (or your employer) retain the copyright to your
-contribution; this simply gives us permission to use and redistribute your
-contributions as part of the project. Head over to
-<https://cla.developers.google.com/> to see your current agreements on file or
-to sign a new one.
+To use this Action, create a file called `.github/workflows/mirror.yml` with the
+following contents:
 
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
+```yaml
+on:
+  push:
+    branches:
+      - 'SOURCE_BRANCH_NAME'
 
-## Code reviews
+jobs:
+  mirror_job:
+    runs-on: ubuntu-latest
+    name: Mirror SOURCE_BRANCH_NAME branch to DESTINATION_BRANCH_NAME branch
+    steps:
+    - name: Mirror action step
+      id: mirror
+      uses: khulnasoft-lab/gh-mirror-branch@v1.0
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        source: 'SOURCE_BRANCH_NAME'
+        dest: 'DESTINATION_BRANCH_NAME'
 
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
+```
 
-## Community Guidelines
+With `SOURCE_BRANCH_NAME` and `DESTINATION_BRANCH_NAME` replaced as appropriate.
 
-This project follows
-[Google's Open Source Community Guidelines](https://opensource.google/conduct/).
+-----
+
+This is not an officially supported Google product.
