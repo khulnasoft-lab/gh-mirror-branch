@@ -1,5 +1,5 @@
-name: 'Mirror Branch action"
-description: 'Mirror a source branch to a destination branch within the same repository'
+name: 'Github Mirror Branch'
+description: 'Github Action for Mirror a source branch to a destination branch within the same repository'
 inputs:
   github-token:
     description: 'This should be `secrets.GITHUB_TOKEN`.'
