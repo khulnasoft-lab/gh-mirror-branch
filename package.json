@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khulnasoft-lab/gh-mirror-branch.git"
+    "url": "git+https://github.com/khulnasoft-lab/gh-mirror-branch"
   },
-  "author": "",
+  "author": "khulnasoft-lab",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/khulnasoft-lab/gh-mirror-branch/issues"
