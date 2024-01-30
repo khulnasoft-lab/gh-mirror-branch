@@ -1,20 +1,30 @@
+name: Mirror Main to Test-Mirror
+
 on:
   push:
     branches:
-      - 'main'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   mirror_job:
     runs-on: ubuntu-latest
-    name: Mirror main to test-mirror
     steps:
-    # Must checkout to address the action in the current repository.
-    - name: Checkout
-      uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
-    - name: Mirror action step
-      id: mirror
-      uses: ./
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        source: 'main'
-        dest: 'test-mirror'
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Mirror Main to Test-Mirror
+        id: mirror
+        uses: ./ # Replace with the specific release or tag for your custom mirror action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          source-branch: 'main'
+          destination-branch: 'test-mirror'
+    
+      - name: Display Mirror Result
+        run: echo "Mirror Action Result: ${{ steps.mirror.outputs.result }}"
+    
+      # Add more steps as needed for additional actions or verification
+
