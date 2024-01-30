@@ -23,8 +23,3 @@ jobs:
           source-branch: 'main'
           destination-branch: 'test-mirror'
     
-      - name: Display Mirror Result
-        run: echo "Mirror Action Result: ${{ steps.mirror.outputs.result }}"
-    
-      # Add more steps as needed for additional actions or verification
-
