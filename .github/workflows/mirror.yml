@@ -10,7 +10,7 @@ jobs:
     steps:
     # Must checkout to address the action in the current repository.
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Mirror action step
       id: mirror
       uses: ./
